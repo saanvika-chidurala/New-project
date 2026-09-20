@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saanvika | Skills & Projects</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0b0f19',
+                            card: '#151c2c',
+                            border: '#2a3449',
+                            cyan: '#06b6d4',
+                            indigo: '#6366f1',
+                            purple: '#a855f7',
+                            accent: '#38bdf8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(21, 28, 44, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 12px 40px -10px rgba(6, 182, 212, 0.25);
+        }
+
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="relative bg-brand-dark text-gray-200 antialiased selection:bg-brand-cyan selection:text-black min-h-screen flex flex-col justify-between">
+
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none"></div>
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="group flex items-center space-x-2 text-2xl font-bold tracking-tight text-white">
+                    <span class="text-brand-cyan font-mono text-xl">&lt;</span>
+                    <span class="text-gradient">Saanvika</span>
+                    <span class="text-brand-cyan font-mono text-xl">/&gt;</span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="index.html" class="text-gray-300 hover:text-brand-cyan transition-colors duration-200">Home</a>
+                    <a href="skills.html" class="text-brand-cyan font-semibold border-b-2 border-brand-cyan pb-1 transition-colors duration-200">Skills & Projects</a>
+                    <a href="hackathons.html" class="text-gray-300 hover:text-brand-cyan transition-colors duration-200">Hackathons & Wins</a>
+                    <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-semibold shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105">
+                        Contact Me
+                    </a>
+                </nav>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white p-2 rounded-lg bg-brand-card/50 border border-brand-border">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-brand-border px-4 pt-4 pb-6 space-y-3">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/50">Home</a>
+            <a href="skills.html" class="block px-3 py-2 rounded-lg text-base font-medium text-brand-cyan bg-brand-border/40">Skills & Projects</a>
+            <a href="hackathons.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brand-border/50">Hackathons & Wins</a>
+            <a href="contact.html" class="block w-full text-center mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-semibold shadow-lg">
+                Contact Me
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16 flex-grow">
+        
+        <div class="text-center space-y-4 max-w-2xl mx-auto">
+            <div class="inline-block px-3 py-1 rounded-md bg-brand-cyan/10 text-brand-cyan text-xs font-mono font-semibold">
+                TECHNICAL CAPABILITIES
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white">Skills & Code Repositories</h1>
+            <p class="text-gray-400 text-sm sm:text-base">An overview of my core programming stack in C, C++, and Python alongside practical project applications.</p>
+        </div>
+
+        <!-- Skills Section -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- C Card -->
+            <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center font-mono text-xl font-bold text-blue-400">
+                            C
+                        </div>
+                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">System Programming</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">C Programming</h3>
+                    <p class="text-gray-400 text-sm mb-6">Expertise in pointer arithmetic, custom dynamic memory management, structures, and low-level computational tasks.</p>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-mono text-gray-400 mb-2">
+                        <span>Proficiency</span>
+                        <span class="text-blue-400 font-bold">85%</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full bg-brand-dark overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C++ Card -->
+            <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center font-mono text-xl font-bold text-brand-cyan">
+                            C++
+                        </div>
+                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-cyan-500/10 text-brand-cyan border border-cyan-500/20">OOP & STL</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">C++ Development</h3>
+                    <p class="text-gray-400 text-sm mb-6">Proficient in Object-Oriented paradigms, Standard Template Library (STL), and speed-optimized algorithms for competitive programming.</p>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-mono text-gray-400 mb-2">
+                        <span>Proficiency</span>
+                        <span class="text-brand-cyan font-bold">88%</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full bg-brand-dark overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-cyan-600 to-teal-400 rounded-full" style="width: 88%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Python Card -->
+            <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+                            <i class="fa-brands fa-python text-2xl text-amber-400"></i>
+                        </div>
+                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Scripting & Logic</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Python</h3>
+                    <p class="text-gray-400 text-sm mb-6">Used for rapid software prototyping during hackathons, automated data scripts, and back-end logic creation.</p>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-mono text-gray-400 mb-2">
+                        <span>Proficiency</span>
+                        <span class="text-amber-400 font-bold">90%</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full bg-brand-dark overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-amber-500 to-yellow-300 rounded-full" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects List -->
+        <section class="space-y-8">
+            <h2 class="text-2xl font-bold text-white border-b border-brand-border pb-4">Featured Software Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="px-2.5 py-1 rounded-lg bg-cyan-500/10 text-brand-cyan font-mono text-xs">C++ / STL</span>
+                        <i class="fa-solid fa-code-branch text-gray-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Algorithmic Graph & Memory Suite</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        An optimized library written in C++ implementing advanced data structures (Graphs, Tries, Dynamic Programming tables) designed for high performance.
+                    </p>
+                    <div class="flex items-center space-x-2 text-xs font-mono text-gray-400 pt-2">
+                        <span class="w-2 h-2 rounded-full bg-brand-cyan"></span>
+                        <span>C++ STL</span>
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 ml-2"></span>
+                        <span>Memory Optimization</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 font-mono text-xs">Python / Automation</span>
+                        <i class="fa-solid fa-gears text-gray-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Hackathon Rapid Prototyping Toolkit</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A Python workspace for rapid hackathon deployment, featuring automated API connectors, web scrapers, and data visualization scripts.
+                    </p>
+                    <div class="flex items-center space-x-2 text-xs font-mono text-gray-400 pt-2">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span>Python 3</span>
+                        <span class="w-2 h-2 rounded-full bg-purple-400 ml-2"></span>
+                        <span>APIs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 border-t border-brand-border/40 text-center text-gray-500 text-xs font-mono">
+        <p>&copy; <span id="year"></span> Saanvika. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
